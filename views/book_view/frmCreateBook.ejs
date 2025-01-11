@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include('../partial/head.ejs')%>
+
+  <body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <%- include('../partial/sidebar.ejs')%>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+          <!-- Topbar -->
+          <%- include('../partial/navbar.ejs')%>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+
+          </div>
+          <!-- /.container-fluid -->
+          <div class="container mt-5">
+            <h1 class="h3 mb-4 text-gray-800">Create Book</h1>
+            <form method="post" action="/create_book"
+              enctype="multipart/form-data">
+
+              <!-- Text Input -->
+              <div class="form-group">
+                <label for="inputName">Book Name</label>
+                <input type="text" class="form-control" id="inputName"
+                  name="book_name"
+                  placeholder="Enter your name">
+              </div>
+
+              <!-- Select Option 1 -->
+              <div class="form-group">
+                <label for="selectOption1">Author</label>
+                <select class="form-control" id="selectOption1">
+                  <option value>Select your author</option>
+                  <option value>Doctor Doom</option>
+                  <option value>Black panther</option>
+                  <option value>Thanos</option>
+                  <option value>Hulk</option>
+                </select>
+              </div>
+
+              <!-- Select Option 2 -->
+              <div class="form-group">
+                <label for="selectOption2">Category</label>
+                <select class="form-control" id="selectOption2">
+                  <option value>Select your category</option>
+                  <option value>Novel</option>
+                  <option value>Horror</option>
+                  <option value>Funny</option>
+                  <option value>Stategy</option>
+                </select>
+              </div>
+              <!-- <div class="form-group">
+                <label for="image">Book Cover: </label>
+                <img width="250px" height="180px" src
+                  alt>
+                <input id="image" type="file" name="cover">
+              </div> -->
+              <div class="form-group">
+                <label for="image">Book Cover: </label>
+                <img width="250px" style="display: none;" height="180px"
+                  id="preview"
+                  alt>
+                <input id="image" type="file"
+                  name="cover">
+              </div>
+              <script>
+
+                  document.getElementById('image').onchange = (event) => {
+                      const preview = document.getElementById('preview');
+                      const file = event.target.files[0];
+
+                      if (file) {
+                          const reader = new FileReader();
+                          document.getElementById('preview').style.display = "block"
+                          document.getElementById('preview').style.margin = "10px"
+
+                          reader.onload = function(e) {
+
+                              preview.src = e.target.result;
+                              preview.alt = "Preview of the selected book cover";
+                          };
+
+                          reader.readAsDataURL(file);
+                      } else {
+                          preview.src = "";
+                          preview.alt = "";
+                      }
+                  };
+
+                
+              </script>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <%- include('../partial/footer.ejs')%>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end
+            your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button"
+              data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

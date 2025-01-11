@@ -1,0 +1,28 @@
+#previewImage {
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#previewImage:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+    /* Slightly enlarge on hover */
+}
+
+.hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: none;
+    pointer-events: none;
+}
+
+.form-group:hover .hover-text {
+    display: block;
+}
