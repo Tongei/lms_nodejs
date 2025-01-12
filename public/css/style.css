@@ -26,3 +26,17 @@
 .form-group:hover .hover-text {
     display: block;
 }
+
+.auth-btn {
+    padding: 5px 15px;
+    background: rgb(5, 68, 94);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.auth-btn:hover {
+    text-decoration: none;
+    color: white;
+}
